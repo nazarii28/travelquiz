@@ -1,0 +1,366 @@
+body {
+    background: url(../img/pietro-de-grandi-T7K4aEPoGGk-unsplash.jpg);
+    font-family: sans-serif;
+}
+
+:root {
+    --bg: rgba(255, 255, 255, 0.8);
+    --grey-1: brown;
+    --grey-2: rgb(163, 161, 161);
+  }
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quiz-content {
+    display: none;
+}
+
+.quiz-content.active {
+    display: block;
+}
+
+.quiz-block {
+    display: flex;
+    width: 80%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    min-height: 90vh;
+}
+
+.quiz-block:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--bg);
+    filter: blur(350px);
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+h2 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #363636;
+    margin-bottom: 40px;
+    display: inline-block;
+    background: linear-gradient(to top,#FC8902 0%, #FC8902 40%, transparent 41%, transparent 100%);
+}
+
+.col-left {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 75%;
+    padding: 50px 80px 40px 50px;
+}
+
+.col-right {
+    flex-basis: 25%;
+}
+
+.progress {
+    display: none;
+    position: relative;
+    width: 100%;
+    border-top: 2px dashed var(--grey-2);
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.progress .dot {
+    width: 10px;
+    height: 10px;
+    background-color: var(--grey-2);
+    border-radius: 50%;
+    margin-top: -6px;
+}
+
+.flight {
+    position: absolute;
+    top: -16px;
+    left: 0%;
+    transition: all 0.3s ease;
+}
+
+.flight svg {
+    transform: rotate(90deg);
+    height: 30px;
+    width: 30px;
+    fill: orange;
+}
+
+form.text-blocks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+form.text-blocks label {
+    display: flex;
+    align-items: center;
+    padding: 15px 10px;
+    min-width: 250px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    background: var(--bg);
+    border: 2px solid transparent;
+}
+
+form.text-blocks label.active {
+    border: 2px solid orange;
+}
+
+form label input[type="checkbox"] ~ span {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    background: var(--grey-2);
+    border-radius: 3px;
+    margin-right: 15px;  
+    position: relative;
+    overflow: hidden;
+}
+
+form label input[type="checkbox"] ~ span svg {
+    width: 100%;
+    height: 73%;
+    fill: #fff;
+    opacity: 0;
+}
+
+form input[type="checkbox"], form input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+    width: 1;
+    height: 1;
+}
+
+form input[type="checkbox"]:checked ~ span {
+    background: orange;
+}
+
+form input[type="checkbox"]:checked ~ span svg {
+    opacity: 1;
+}
+
+form.images-blocks {
+    display: flex;
+}
+
+form.images-blocks label {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+form.images-blocks label:nth-child(2) {
+    margin: 0 27px;
+}
+
+form.images-blocks label .image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 15px;
+    border: 2px solid transparent;
+}
+
+form.images-blocks label .image.active{
+    border: 2px solid orange;
+}
+
+form.images-blocks label img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+form label input[type="radio"] ~ span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid orange;
+    position: relative;
+    margin-right: 10px;
+}
+
+form label input[type="radio"] ~ span:after {
+    content: '';
+    opacity: 0;
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    border-radius: inherit;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: orange;
+}
+
+
+form.images-blocks label input[type="radio"]:checked ~ span:after{
+    opacity: 1;
+}
+
+form.images-blocks .label-wrap {
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+}
+
+form.contact {
+    display: flex;
+    margin-top: 20px;
+}
+
+.description {
+    display: inline-block;
+    background: linear-gradient(to top,#FC8902 0%, #FC8902 60%, transparent 61%, transparent 100%);
+}
+
+form.contact input {
+    min-width: 200px;
+    background: var(--bg);
+    margin-right: 20px;
+    padding: 13px 20px;
+    border-radius: 7px;
+    border: 2px solid orange;
+}
+
+form.contact input:focus {
+    border: 2px solid orange;
+}
+
+form.contact input.error {
+    border: 2px solid red;
+}
+
+.final__img {
+    height: 300px;
+    display: block;
+    margin-top: 30px;
+}
+
+.btns {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.next {
+    background: linear-gradient(to right,#FC8902, #F93A02);
+    border-radius: 30px;
+    color: #fff;
+    font-weight: 600;
+    padding: 17px 65px;
+    font-size: 16px;
+}
+
+.next.disabled {
+    cursor: auto;
+    opacity: 0.5;
+}
+
+.prev {
+    color: var(--grey-2);
+    font-weight: 600;
+    background: var(--bg);
+    padding: 10px 20px 10px 11px;
+    border-radius: 20px;
+    font-size: 16px;
+}
+
+.prev svg {
+    fill: var(--grey-2);
+    width: 15px;
+    height: 13px;
+}
+
+.col-right {
+    padding: 20px 20px 40px 20px;
+    background: url(../img/patern.png);
+    display: flex;
+    flex-direction: column;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+}
+
+.user .icon img{
+    height: 60px;
+}
+
+.user .icon {
+    margin-right: 10px;
+}
+
+.name {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.user__info {
+    color: var(--grey-2);
+    font-size: 14px;
+}
+
+.tootlip {
+    position: relative;
+    margin-top: 20px;
+    background: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 5px 1px rgb(190, 190, 190);
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.tootlip p {
+    display: none;
+}
+
+.tootlip p.active {
+    display: block;
+}
+
+.tootlip:before {
+    content: '';
+    position: absolute;
+    height: 0;
+    border-bottom: 10px solid #fff;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    left: 20px;
+    top: -9px;
+
+}
+
+.steps {
+    margin-top: auto;
+}
+
+.steps .curent {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.steps .left {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--grey-2);
+    margin-top: 10px;
+}
